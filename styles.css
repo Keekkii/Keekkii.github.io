@@ -1,0 +1,264 @@
+/* Custom styles */
+/* Profile image positioning */
+.profile-image-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-image-container img {
+    position: relative;
+    top: -5%; /* Starting with a more moderate adjustment */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center 60%; /* Higher value to move the image down */
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #374151;
+}
+
+/* Custom selection */
+
+/* Carousel Styles */
+.project-carousel {
+    margin: 0 -1rem;
+    padding: 1.5rem 0;
+    overflow: hidden;
+    position: relative;
+}
+
+#project-track {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    #project-track {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        transition: transform 0.5s ease;
+        position: relative;
+    }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.project-carousel::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.project-carousel {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+#project-track {
+    display: flex;
+    transition: transform 0.3s ease;
+    will-change: transform;
+}
+
+.project-card {
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 0 1rem 1.5rem;
+    scroll-snap-align: start;
+    margin: 0 0.5rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+/* Image container styling */
+.project-card > div:first-child {
+    margin: 0 -1rem 1rem;
+    padding: 1rem;
+    background-color: #f3f4f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10rem;
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Navigation Buttons */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.carousel-nav:hover {
+    background: #f3f4f6;
+    transform: translateY(-50%) scale(1.1);
+}
+
+#prev-btn {
+    left: 0.5rem;
+}
+
+#next-btn {
+    right: 0.5rem;
+}
+
+/* Dots Navigation */
+#dots-container {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+#dots-container button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: #d1d5db;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#dots-container button.active {
+    background: #3b82f6;
+    transform: scale(1.2);
+}
+
+/* Responsive adjustments */
+/* Mobile first - stack all projects */
+.project-card {
+    width: 100%;
+    margin: 0 0 1.5rem 0;
+    flex: 0 0 auto;
+}
+
+@media (min-width: 768px) {
+    .project-card {
+        width: calc(33.333% - 1rem);
+        margin: 0 0.5rem;
+    }
+    
+    .carousel-nav {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .project-carousel {
+        margin: 0 -1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .project-card {
+        width: calc(33.333% - 1rem);
+        margin: 0 0.5rem;
+        flex: 0 0 auto;
+    }
+    
+    .project-carousel {
+        margin: 0 -2rem;
+    }
+}
+::selection {
+    background: #3b82f6;
+    color: white;
+}
+
+/* Custom focus styles */
+*:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    nav {
+        padding: 1rem;
+    }
+    
+    nav div {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    nav, footer, #contact {
+        display: none;
+    }
+    
+    body {
+        padding: 0;
+        margin: 0;
+        color: #000;
+        background: #fff;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+    }
+    
+    a::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        font-weight: normal;
+    }
+}
